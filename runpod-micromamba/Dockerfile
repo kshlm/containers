@@ -12,6 +12,7 @@ RUN rm -rf /root/.cache && ln -s /workspace/cache /root/.cache
 ADD prepare.sh /prepare.sh
 RUN bash /prepare.sh
 RUN rm /prepare.sh
+ADD Caddyfile /etc/caddy/
 
 ADD start.sh /start.sh
 RUN chmod a+x /start.sh

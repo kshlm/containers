@@ -1,0 +1,9 @@
+:8080 {
+	handle_path /gr/* {
+		reverse_proxy http://localhost:7860
+	}
+	handle_path /st/* {
+		reverse_proxy http://localhost:8501
+	}
+	reverse_proxy http://localhost:8888
+}
