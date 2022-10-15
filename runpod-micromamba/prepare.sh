@@ -26,5 +26,7 @@ mv cloudflared /usr/local/bin
 curl -L "https://github.com/zellij-org/zellij/releases/download/v0.31.4/zellij-x86_64-unknown-linux-musl.tar.gz" | tar -xzf -
 chmod +x zellij
 mv zellij /usr/local/bin
+mkdir -p ~/.config/zellij
+echo 'default_shell: /bin/bash' >> ~/.config/zellij/config.yaml
 
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
