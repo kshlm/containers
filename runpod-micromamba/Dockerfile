@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive\
     SHELL=/bin/bash
 
 ADD prepare.sh /prepare.sh
-RUN chmod +x /prepare.sh && prepare.sh
+RUN bash /prepare.sh
 RUN rm /prepare.sh
 
 RUN mkdir -p /workspace/micromamba /workspace/cache
