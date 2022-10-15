@@ -3,7 +3,7 @@
 set -x
 
 apt update
-apt install -y openssh-server neovim less unzip wget curl zstd git aria2
+apt install -y openssh-server neovim less unzip wget curl zstd git aria2 tmux
 apt clean
 rm -rf /var/lib/apt/lists/*
 
@@ -22,11 +22,5 @@ mv miniserve /usr/local/bin
 wget "https://github.com/cloudflare/cloudflared/releases/download/2022.10.0/cloudflared-linux-amd64" -O cloudflared
 chmod +x cloudflared
 mv cloudflared /usr/local/bin
-
-curl -L "https://github.com/zellij-org/zellij/releases/download/v0.31.4/zellij-x86_64-unknown-linux-musl.tar.gz" | tar -xzf -
-chmod +x zellij
-mv zellij /usr/local/bin
-mkdir -p ~/.config/zellij
-echo 'default_shell: /bin/bash' >> ~/.config/zellij/config.yaml
 
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
