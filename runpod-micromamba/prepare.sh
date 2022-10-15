@@ -3,7 +3,7 @@
 set -x
 
 apt update
-apt install -y openssh-server neovim less unzip wget curl zstd
+apt install -y openssh-server neovim less unzip wget curl zstd git
 apt clean
 rm -rf /var/lib/apt/lists/*
 
