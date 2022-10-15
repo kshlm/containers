@@ -3,7 +3,7 @@
 set -x
 
 apt update
-apt install -y openssh-server neovim less unzip wget curl zstd git
+apt install -y openssh-server neovim less unzip wget curl zstd git aria2
 apt clean
 rm -rf /var/lib/apt/lists/*
 
@@ -27,9 +27,4 @@ curl -L "https://github.com/zellij-org/zellij/releases/download/v0.31.4/zellij-x
 chmod +x zellij
 mv zellij /usr/local/bin
 
-cat <<"EOF" >>/root/.bashrc
-if [[ -n "$SSH_TTY" ]]; then
-    [[ -v commands[zellij] ]] && [[ ! -v ZELLIJ ]] && zellij attach -c "z4h-ssh" && exit
-fi
-EOF
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
