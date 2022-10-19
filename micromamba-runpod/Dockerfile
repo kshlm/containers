@@ -1,4 +1,4 @@
-ARG KSHLM_MICROMAMBA=ghcr.io/kshlm/containers/micromamba:latest
+ARG KSHLM_MICROMAMBA=ghcr.io/kshlm/containers/micromamba:main
 FROM $KSHLM_MICROMAMBA
 
 RUN mkdir -p /workspace/micromamba /workspace/cache

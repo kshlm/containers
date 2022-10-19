@@ -1,0 +1,31 @@
+name: Build customized micromamba images
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+on:
+  push:
+    branches: [ "main" ]
+    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  micromamba:
+    uses: ./.github/workflows/build-push-containers.yml
+    with:
+      image_name: ghcr.io/${{ github.repository }}/micromamba
+      build_context_dir: micromamba/
+    secrets: inherit
+
+  micromamba-runpod:
+    uses: ./.github/workflows/build-push-containers.yml
+    needs: micromamba
+    with:
+      image_name: ghcr.io/${{ github.repository }}/micromamba-runpod
+      build_context_dir: micromamba-runpod/
+      build_args: KSHLM_MICROMAMBA=ghcr.io/${{ github.repository }}/micromamba:${{ github.ref_name }}@${{ needs.micromamba.outputs.digest }}
+    secrets: inherit
