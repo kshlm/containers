@@ -3,7 +3,7 @@
 set -x
 
 apt update
-apt install -y openssh-server neovim less unzip wget curl zstd git aria2 tmux
+apt install -y openssh-server neovim less unzip wget curl zstd git aria2 tmux libgl1 libglib2.0-0
 apt clean
 rm -rf /var/lib/apt/lists/*
 
